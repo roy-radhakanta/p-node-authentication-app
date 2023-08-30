@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card m-4">
+    <div class="card-header">Signup</div>
+    <div class="card-body">
+      <form method="post" action="/users/create">
+        <div class="mb-3">
+          <label for="username" class="form-label">User name</label>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            id="username"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="emailaddress" class="form-label">Email address</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="emailaddress"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
