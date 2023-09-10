@@ -10,7 +10,7 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-stategy');
 const MongoStore = require('connect-mongo');
-
+require('dotenv').config();
 
 app.use(express.urlencoded());
 
@@ -36,7 +36,7 @@ app.use(session({
          maxAge:(1000*60*100)
     },
 	store: MongoStore.create({
-		mongoUrl: "mongodb+srv://radhakantaroydev:uPHiIFzV9bM77TzL@cluster0.xuqscfk.mongodb.net/?retryWrites=true&w=majority",
+		mongoUrl: process.env.MONGODB_URL,
 		autoRemove: 'disabled'
 	})
 }));
