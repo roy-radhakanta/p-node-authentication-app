@@ -5,15 +5,32 @@ module.exports.profile=function(req, res){
         title: "Profile"
     });
 }
+
 module.exports.signup = function(req, res){
+	if(req.isAuthenticated()){
+		return res.redirect('/users/profile');
+	}
+	
     return res.render('users_signup', {
         title: "Signup"
     });
 }
+
 module.exports.signin = function(req, res){
+	if(req.isAuthenticated()){
+		return res.redirect('/users/profile');
+	}
+	
     return res.render('users_signin', {
         title: "Signin"
     });
+}
+
+module.exports.destroysession = function(req, res){
+	req.logOut(function(err){
+		if(err){console.log(err); return;}
+		return res.redirect('/');
+	});	
 }
 
 module.exports.create = async function(req, res){
@@ -30,4 +47,8 @@ module.exports.create = async function(req, res){
     }else{
         return res.redirect('back');
     }
-};
+}
+
+module.exports.createSession = async function(req, res){
+    return res.redirect('/');
+}
